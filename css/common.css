@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+/* header、section-title、footerのCSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+
+/*header*/
+
+/*nav-area最初は非表示*/
+
+.nav-area {
+  display: block;
+  position: fixed;
+  top: 0;/*カスタム*/
+  left: -300px; /*widthと同じサイズで非表示*/
+  bottom: 0;/*カスタム*/
+  width: 300px; /*nav-areaの幅*/
+  background: orange;
+  transition: all .5s;/*表示スピード*/
+  z-index: 100;
+  opacity: 0;
+}
+.nav-menu {
+  margin-top: 50px;
+}
+.nav-menu a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  margin: 10px 50px;
+  font-size: 1.1rem;
+}
+
+/*nav-area表示時*/
+
+.open.nav-area {
+  left: 0;/*left-300からleft0でnav-area表示*/
+  opacity: 1;
+}
+
+/*nav-button*/
+
+.nav-btn {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 90;
+}
+.nav-btn i{
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #333;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.nav-btn i:nth-child(1) {
+  top:4px;
+}
+.nav-btn i:nth-child(2) {
+  top: 14px;
+}
+.nav-btn i:nth-child(3) {
+  top: 24px;
+}
+
+/*nav-area表示時*/
+
+.open.nav-btn i:nth-child(1) {
+  transform: translateY(10px) rotate(-45deg);/*回転アニメは-315deg*/
+}
+.open.nav-btn i:nth-child(2) {
+  opacity: 0;
+}
+.open.nav-btn i:nth-child(3) {
+  transform: translateY(-10px) rotate(45deg);/*回転アニメは315deg*/
+}
+
+/*mask*/
+
+.mask {
+  display: none;
+  transition: all .5s;
+}
+.open.mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: gray;
+  opacity: .8;
+  z-index: 80;
+  cursor: pointer;
+}
+
+/*pcsp-header*/
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background: white;
+  z-index: 70;
+}
+.header-wrap {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-logo img{
+  width: 150px;
+}
+.color-menu {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.menu-text {
+  padding: 2px 0 0 5px;
+  font-size: 1.1rem;
+} 
+
+/*section-title*/
+
+.section-title h3 {
+  text-align: center;
+  margin: 200px auto 100px auto;
+  font-size: 1.5rem;
+  display: inline-block;
+  border-left: solid 10px orange;
+  padding-left: 10px;
+}
+
+/*footer*/
+
+footer {
+  margin-top: 200px;
+  background: orange;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+footer .left,
+footer .center,
+footer .right {
+  width: 33%;
+}
+footer .left p {
+  font-size: 1.5rem;
+}
+footer .left ul {
+  display: flex;
+  justify-content: center;
+}
+footer .left img {
+  width: 30px;
+  padding: 20px;
+}
+footer .center a,footer .right a {
+  color: white;
+  font-size: 1.1rem;
+}
+footer .center li,footer .right li {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  footer .center a,footer .right a {
+    font-size: 1rem;
+  }
+}
